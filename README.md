@@ -19,7 +19,20 @@ pip install -r requirements.txt
 ```sh
 python -m domainbed.scripts.download --data_dir=/my/datasets/path
 ```
+### Environment
+Environment details used for our study.
 
+
+
+```sh
+	Python: 3.8.10
+	PyTorch: 1.10.1+cu113
+	Torchvision: 0.11.2+cu113
+	CUDA: 11.3
+	CUDNN: 8200
+	NumPy: 1.19.4
+	PIL: 8.1.0
+```
 
 ## How to Run
 
@@ -44,14 +57,11 @@ Example results on PACS with ResNet-50:
 In this example, QT-DoG achieves a Domain Generalization (DG) performance of 87.8% on the PACS dataset. However, when ensembling using the same method as Ensemble of Averages (EoA), our EOQ approach achieves state-of-the-art results, despite being more compact in size.
 
 
-##  Results:
+##  Results
 
-<p align="center">
-    <img src="./assets/fig2.png" width="80%" />
-</p>
+###  Quantizing Vision Transformers
 
-###  Quantizing Vision Transformers:
-
+Comparison of performance on PACS and TerraInc datasets with and without QT-DoG quantization of [ERM_ViT](https://openaccess.thecvf.com/content/ACCV2022/papers/Sultana_Self-Distilled_Vision_Transformer_for_Domain_Generalization_ACCV_2022_paper.pdf) using the DeiT-Small backbone.
 
 | **Algorithm**           | **Backbone**    | **PACS**            | **TerraInc**        | **Compression** |
 |-------------------------|-----------------|---------------------|---------------------|-----------------|
@@ -59,11 +69,31 @@ In this example, QT-DoG achieves a Domain Generalization (DG) performance of 87.
 | **ERM-SD_ViT**          | DeiT-Small      | **86.3 ± 0.2**       | 44.3 ± 0.2          | -               |
 | **ERM_ViT + QT-DoG**    | DeiT-Small      | 86.2 ± 0.3          | **45.6 ± 0.4**       | **4.6x**        |
 
-**Table 1:** *Quantization of a Vision Transformer:* Comparison of performance on PACS and TerraInc datasets with and without QT-DoG quantization of [ERM_ViT](https://openaccess.thecvf.com/content/ACCV2022/papers/Sultana_Self-Distilled_Vision_Transformer_for_Domain_Generalization_ACCV_2022_paper.pdf) using the DeiT-Small backbone.
+###  Combination with other methods
 
-###  Combination with other methods:
-
-
+Results of PACS and Terra Incognita datasets incorporating QT-DoG with CORAL and MixStyle. "C" represents the compression factor of the model.
 
 
-This project includes some code from [SWAD]([https://github.com/facebookresearch/DomainBed/tree/3fe9d7bb4bc14777a42b3a9be8dd887e709ec414](https://github.com/khanrc/swad?tab=readme-ov-file)) and [LSQ](https://github.com/zhutmost/lsq-net), also MIT licensed.
+| **Algorithm**        | **PACS**           | **TerraInc**        | **C**      |
+|----------------------|--------------------|---------------------|------------|
+| **CORAL**            | 85.5 ± 0.6         | 47.1 ± 0.2          | -          |
+| **CORAL + QT-DoG**   | **86.9 ± 0.2**      | **50.6 ± 0.3**       | 4.6x       |
+| **MixStyle**         | 85.2 ± 0.3         | 44.0 ± 0.4          | -          |
+| **MixStyle + QT-DoG**| **86.8 ± 0.3**      | **47.7 ± 0.2**       | 4.6x       |
+
+## Main Results
+
+<p align="center">
+    <img src="./assets/main_results.png" width="80%" />
+</p>
+
+##  Flatness Plots
+
+We used the same method as [SWAD](https://github.com/khanrc/swad/tree/main/visualization) to plot the loss flatness. Below are the local loss flatness plots for QT-DoG along with other methods.
+
+<p align="center">
+    <img src="./assets/loss_flatness.png" width="80%" />
+</p>
+
+### Acknowledgements
+Our code is based on [SWAD](https://github.com/khanrc/swad/tree/main) and [LSQ](https://github.com/zhutmost/lsq-net) repository. We thank the authors for releasing their code. 
