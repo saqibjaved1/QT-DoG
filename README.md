@@ -5,6 +5,18 @@ GENERALIZATION]().
 
 QT-DoG enhances domain generalization by utilizing quantization to promote flatter minima in the loss landscape, which reduces overfitting to source domains and improves performance on unseen data. It significantly reduces model size and computational overhead without sacrificing accuracy, making it resource-efficient and suitable for real-world applications. Additionally, QT-DoG generalizes across various datasets, architectures, and quantization algorithms, and can be seamlessly combined with other domain generalization techniques, demonstrating its robustness and adaptability.
 
+## Citation
+If you find our work useful. Please consider giving a star :star: and a citation.
+```bibtex
+@misc{javed2024qtdogquantizationawaretrainingdomain,
+      title={QT-DoG: Quantization-aware Training for Domain Generalization},
+      author={Saqib Javed and Hieu Le and Mathieu Salzmann},
+      year={2024},
+      archivePrefix={arXiv},
+      url={https://arxiv.org/abs/2410.06020},
+}
+```
+
 
 ## Preparation
 
@@ -97,3 +109,5 @@ We used the same method as [SWAD](https://github.com/khanrc/swad/tree/main/visua
 
 ### Acknowledgements
 Our code is based on [SWAD](https://github.com/khanrc/swad/tree/main) and [LSQ](https://github.com/zhutmost/lsq-net) repository. We thank the authors for releasing their code. 
+
+
