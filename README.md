@@ -1,7 +1,9 @@
 # QT-DOG: QUANTIZATION-AWARE TRAINING FOR DOMAIN GENERALIZATION
 
-Official PyTorch implementation of [QT-DOG: QUANTIZATION-AWARE TRAINING FOR DOMAIN
-GENERALIZATION]().
+> [Saqib Javed](https://saqibjaved1.github.io/), [Hieu Le](https://hieulem.github.io/), [Mathieu Salzmann](https://scholar.google.com/citations?user=n-B0jr4AAAAJ&hl=en)
+
+[![Website](https://img.shields.io/badge/Project-Website-87CEEB)](https://saqibjaved1.github.io/QT_DoG/)
+[![arXiv](https://img.shields.io/badge/arXiv-Paper-FFF933)](https://arxiv.org/abs/2410.06020)
 
 QT-DoG enhances domain generalization by utilizing quantization to promote flatter minima in the loss landscape, which reduces overfitting to source domains and improves performance on unseen data. It significantly reduces model size and computational overhead without sacrificing accuracy, making it resource-efficient and suitable for real-world applications. Additionally, QT-DoG generalizes across various datasets, architectures, and quantization algorithms, and can be seamlessly combined with other domain generalization techniques, demonstrating its robustness and adaptability.
 
